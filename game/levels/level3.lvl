@@ -1,0 +1,13 @@
+EnemyDoppleganger   player
+EnemyMortar         240     10  myPlayers
+EnemyScout          120     80
+EnemyScout          360     80
+EnemyScout          240     170
+EnemyScout          160     170
+EnemyScout          320     170
+EnemyMortar         1600    10  myPlayers
+EnemyScout          1480    80
+EnemyScout          1720    80
+EnemyScout          1520    170
+EnemyScout          1600    170
+EnemyScout          1680    170
