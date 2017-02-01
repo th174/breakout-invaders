@@ -13,6 +13,7 @@ README
 		* Missile Launchers are stationary, but slow homing missiles that do high damage to anything within the blast radius at detonation.
 		* Dopplegangers are a corrupted version of the player's own ship, mirroring the players own movements. They also fire bouncing balls that move similarly to the player's own ball.
 * Victory lies in completing each level without allowing your ship to be destroyed.
+
 ###**Controls**
 - Mousemove:
 > Moves player1's ship
