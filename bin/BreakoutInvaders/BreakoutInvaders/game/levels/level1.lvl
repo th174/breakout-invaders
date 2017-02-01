@@ -1,0 +1,21 @@
+EnemyGunner     960     0
+EnemySoldier    640     0
+EnemySoldier    1280    0
+EnemyScout      384     180     2   10
+EnemyScout      768     180     2   10
+EnemyScout      1152    180     2   10
+EnemyScout      1536    180     2   10
+EnemySentry     240     280
+EnemySentry     480     280
+EnemySentry     720     280
+EnemySentry     960     280
+EnemySentry     1200    280
+EnemySentry     1440    280
+EnemySentry     1680    280
+EnemySentry     274.28  80
+EnemySentry     548.57  80
+EnemySentry     822.86  80
+EnemySentry     1097.14 80
+EnemySentry     1371.43 80
+EnemySentry     1645.71 80
+

@@ -1,0 +1,16 @@
+EnemySpectre    384     0
+EnemyWraith     768     0
+EnemySpectre    1152    0
+EnemyWraith     1536    0
+EnemyScout      480     180 2   10
+EnemyScout      960     180 2   10
+EnemyScout      1440    180 2   10
+EnemySentry     390     280
+EnemySentry     870     280
+EnemySentry     1350    280
+EnemySentry     480     280
+EnemySentry     960     280
+EnemySentry     1440    280
+EnemySentry     570     280
+EnemySentry     1050    280
+EnemySentry     1530    280
