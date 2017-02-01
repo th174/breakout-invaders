@@ -2,9 +2,8 @@ README
 =================================
 ##Usage
 
-`git clone https://github.com/th174/breakout-invaders.git
-
-java -jar breakout-invaders/bin/BreakoutInvaders/BreakoutInvaders.jar`
+    git clone https://github.com/th174/breakout-invaders.git
+    java -jar breakout-invaders/bin/BreakoutInvaders/BreakoutInvaders.jar
 
 ###Command Line Arguments
 - `--dimensions=DIMENSION`
@@ -40,19 +39,6 @@ java -jar breakout-invaders/bin/BreakoutInvaders/BreakoutInvaders.jar`
 - Spacebar:
 > Pause, Unpause, and Continue game
 
-####Debug keys
-- 'B':
-> Spawn a new ball in the center of the paddle 
-
-- 'H':
-> Sets your health to 100% while toggled on
-
-- 'M': 
-> Makes the paddle "catch" the ball while toggled on, similar to the magnetic paddle powerup.
-
-- 'N': 
->Instantly destroy all enemies in the current level. This ends the current level.
-
 ###**Power-ups**
 Power-ups drop randomly from all enemies when they are destroyed, using [Pseudo-Random Distribution](http://wiki.teamliquid.net/dota2/Pseudo_Random_Distribution). 
 Averaged over a long period of time, each enemy ship has a total 19.8% chance to drop a Power-up.
@@ -69,7 +55,18 @@ Making contact with powerups using with your ship will trigger their effects.
 - Health Pack (~5.9% drop rate): 
 > Permanently regenerates 20% of your maximum hp, up to 100%
 
+###Debug keys
+- 'B':
+> Spawn a new ball in the center of the paddle 
 
+- 'H':
+> Sets your health to 100% while toggled on
+
+- 'M': 
+> Makes the paddle "catch" the ball while toggled on, similar to the magnetic paddle powerup.
+
+- 'N': 
+>Instantly destroy all enemies in the current level. This ends the current level.
 
 Credits
 -----------------------------------------
