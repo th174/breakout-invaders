@@ -1,5 +1,20 @@
 README
 =================================
+##Usage
+
+`git clone https://github.com/th174/breakout-invaders.git
+java -jar breakout-invaders/bin/BreakoutInvaders/BreakoutInvaders.jar`
+
+###Command Line Arguments
+- `--dimensions=DIMENSION`
+   > The game will use a user-defined resolution instead of a detected native resolution. NOTE: This game was designed primarily on a 1080p screen, and does not fully support other dimensions. Some UI elements may break, and gameplay experience may not be optimized.
+- `--no-fit-screen=BOOLEAN`
+   > If true, the game will use the default resolution (1920x1080) instead of your screen's detected native resolution. Use this option on very high resolution screens.
+- `--hitboxes=BOOLEAN`
+   > If true, the game will show debug hitboxes. This feature is only intended for debug use. Turning on hitboxes on a low end machine may cause low framerates and poor performance.
+- `--fullscreen=BOOLEAN`
+   > If false, the game will run in windowed mode. Because the game runs by default on your screen's native resolution, you should use this option in conjunction with `--no-fit-screen` on very high resolution screens.
+
 ##**Gameplay**
 * The player must defend against an invasion by piloting a ship equipped with an energy paddle and a Plasmaball. The Plasmaball will bounce off of all surfaces, including your paddle, except for the bottom edge of the screen. Your goal is to clear a field of enemies by bouncing the ball around using the energy paddle.
 	* Your ship comes equipped with shield and hull defenses. Taking hits from the enemy fleet will deplete your shield integrity, and then your hull health once your shield is empty. Shields also slowly deplete on their own over time.
@@ -36,16 +51,6 @@ README
 
 - 'N': 
 >Instantly destroy all enemies in the current level. This ends the current level.
-
-###Command Line Arguments
-- `--dimensions=DIMENSION`
-   > The game will use a user-defined resolution instead of a detected native resolution. NOTE: This game was designed primarily on a 1080p screen, and does not fully support other dimensions. Some UI elements may break, and gameplay experience may not be optimized.
-- `--no-fit-screen=BOOLEAN`
-   > If true, the game will use the default resolution (1920x1080) instead of your screen's detected native resolution. Use this option on very high resolution screens.
-- `--hitboxes=BOOLEAN`
-   > If true, the game will show debug hitboxes. This feature is only intended for debug use. Turning on hitboxes on a low end machine may cause low framerates and poor performance.
-- `--fullscreen=BOOLEAN`
-   > If false, the game will run in windowed mode. Because the game runs by default on your screen's native resolution, you should use this option in conjunction with `--no-fit-screen` on very high resolution screens.
 
 ###**Power-ups**
 Power-ups drop randomly from all enemies when they are destroyed, using [Pseudo-Random Distribution](http://wiki.teamliquid.net/dota2/Pseudo_Random_Distribution). 
