@@ -62,75 +62,6 @@ Making contact with powerups using with your ship will trigger their effects.
 - Health Pack (~5.9% drop rate): 
 > Permanently regenerates 20% of your maximum hp, up to 100%
 
-###Source Files
-All of the following files are needed to run the program
-**Java Classes**
-* game.Main (main)
-* game.GameProperty
-* game.EnemyScout
-* game.EnemyWraith
-* game.PlasmaBall
-* game.Powerup
-* game.EnemySentry   
-* game.GameObj
-* game.PlayerShip
-* game.Projectile.
-* game.EnemyDoppleganger
-* game.EnemyShip
-* game.Lase
-* game.Missile
-* game.PowerupBallMagnet
-* game.EnemyGunner
-* game.EnemySoldier
-* game.PaddleShip
-* game.PowerupExtraBall.
-* game.EnemyMortar
-* game.EnemySpectre
-* game.PowerupHealthPack
-* game.Ship
-**Levels**
-* game/level1.lvl
-* game/level2.lvl
-* game/level3.lvl
-**Resources**
-* game/resources/Background.png
-* game/resources/ballmagnet.png
-* game/resources/BGM1.mp3
-* game/resources/BGM2.mp3
-* game/resources/BGM3.wav
-* game/resources/bounce2.wav
-* game/resources/bounce.wav
-* game/resources/doppleganger2.png
-* game/resources/doppleganger.png
-* game/resources/explosion1.png
-* game/resources/explosion2.png
-* game/resources/explosion3.png
-* game/resources/explosion4.png
-* game/resources/explosion5.png
-* game/resources/explosion-old1.wav
-* game/resources/explosion.wav
-* game/resources/extraball.png
-* game/resources/gunner2.png
-* game/resources/gunner.png
-* game/resources/healthpack.png
-* game/resources/log.txt
-* game/resources/missile.png
-* game/resources/mortar2.png
-* game/resources/mortar.png
-* game/resources/MxL3hcPh.jpg
-* game/resources/paddleship.png
-* game/resources/plasmaball.png
-* game/resources/scout2.png
-* game/resources/scout.png
-* game/resources/sentry2.png
-* game/resources/sentry.png
-* game/resources/shadowball.png
-* game/resources/soldier2.png
-* game/resources/soldier.png
-* game/resources/spectre2.png
-* game/resources/spectre.png
-* game/resources/wraith.png
-
 
 
 Credits
@@ -139,7 +70,6 @@ Credits
 All code was Java code was written, designed, and built by Tianyue Huang (th174).  
 Artwork was derived from images found online, edited in Adobe Photoshop.
 Credit to StackOverflow for explaining to me how Java Reflection worked.
-Time taken: ~35 hours
 
 **Credits for original artwork go to**
 [pzUH](http://www.gameart2d.com)
