@@ -67,14 +67,17 @@ Making contact with powerups using with your ship will trigger their effects.
 Credits
 -----------------------------------------
 **Coding**
+
 Java code was written, designed, and built by Tianyue Huang (github.com/th174).  
 Artwork was derived from images found online, edited in Adobe Photoshop.
 Credit to StackOverflow for explaining to me how Java Reflection worked.
 
 **Credits for original artwork go to**
+
 [pzUH](http://www.gameart2d.com)
 [MillionthVector](http://millionthvector.blogspot.com/)
 
 **Credits for the BGM go to**
+
 [ParagonX9](paragonx9.newgrounds.com)
 [zeroscar](zeroscar.bandcamp.com)
