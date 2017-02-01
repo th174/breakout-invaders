@@ -3,6 +3,7 @@ README
 ##Usage
 
 `git clone https://github.com/th174/breakout-invaders.git
+
 java -jar breakout-invaders/bin/BreakoutInvaders/BreakoutInvaders.jar`
 
 ###Command Line Arguments
