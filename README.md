@@ -7,12 +7,16 @@ README
 
 ###Command Line Arguments
 - `--dimensions=DIMENSION`
+
    > The game will use a user-defined resolution instead of a detected native resolution. NOTE: This game was designed primarily on a 1080p screen, and does not fully support other dimensions. Some UI elements may break, and gameplay experience may not be optimized.
 - `--no-fit-screen=BOOLEAN`
+
    > If true, the game will use the default resolution (1920x1080) instead of your screen's detected native resolution. Use this option on very high resolution screens.
 - `--hitboxes=BOOLEAN`
+
    > If true, the game will show debug hitboxes. This feature is only intended for debug use. Turning on hitboxes on a low end machine may cause low framerates and poor performance.
 - `--fullscreen=BOOLEAN`
+
    > If false, the game will run in windowed mode. Because the game runs by default on your screen's native resolution, you should use this option in conjunction with `--no-fit-screen` on very high resolution screens.
 
 ##**Gameplay**
@@ -31,22 +35,27 @@ README
 
 ###**Controls**
 - Mousemove:
+
 > Moves player1's ship
 
 - Mouse1click:
+
 > Releases the ball from the paddle
 
 - Spacebar:
+
 > Pause, Unpause, and Continue game
 
 ###**Power-ups**
 Power-ups drop randomly from all enemies when they are destroyed, using [Pseudo-Random Distribution](http://wiki.teamliquid.net/dota2/Pseudo_Random_Distribution). 
+
 Averaged over a long period of time, each enemy ship has a total 19.8% chance to drop a Power-up.
 
 Making contact with powerups using with your ship will trigger their effects. 
 
 ####Types
 - Extra Ball (~7.3% drop rate):
+
 > Creates an extra ball on your paddle. It can be released by clicking the mouse, or will release automatically after a few seconds. 
 
 - Magnetic Paddle (~6.6% drop rate): 
