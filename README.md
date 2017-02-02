@@ -1,4 +1,4 @@
-[Click here to download binary](https://github.com/th174/breakout-invaders/bin/BreakoutInvaders.jar)
+Or just [download the jar package](https://github.com/th174/breakout-invaders/raw/master/bin/BreakoutInvaders.jar)
 
 README
 =================================
