@@ -6,7 +6,7 @@ README
     git clone https://github.com/th174/breakout-invaders.git
     java -jar breakout-invaders/bin/BreakoutInvaders/BreakoutInvaders.jar
     
-Or just **[download the binary here](https://github.com/th174/breakout-invaders/raw/master/bin/BreakoutInvaders.jar)**
+Or just **[download the binary here.](https://github.com/th174/breakout-invaders/raw/master/bin/BreakoutInvaders.jar)**
 
 
 ###Command Line Arguments
