@@ -1,9 +1,0 @@
-Mousemove:  move player ship
-                                               Mouseclick: release Plasmaball
-                                               Spacebar:   pausegame
-
-                                               Debug keys:
-                                               B:          spawn new ball
-                                               H:          max HP
-                                               M:          toggle magnetic paddle (balls move to center of paddle instead of bouncing away, unless released)
-                                               N:          instantly kill all enemies in level
