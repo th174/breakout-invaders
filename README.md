@@ -70,11 +70,11 @@ Or just **[download the binary.](https://github.com/th174/breakout-invaders/raw/
 
 ###**Power-ups**
 
-Power-ups drop randomly from all enemies when they are destroyed, using [Pseudo-Random Distribution](http://wiki.teamliquid.net/dota2/Pseudo_Random_Distribution). 
+* Power-ups drop randomly from all enemies when they are destroyed, using [Pseudo-Random Distribution](http://wiki.teamliquid.net/dota2/Pseudo_Random_Distribution). 
 
-Averaged over a long period of time, each enemy ship has a total 19.8% chance to drop a Power-up.
+* Averaged over a long period of time, each enemy ship has a total 19.8% chance to drop a Power-up.
 
-Making contact with powerups using with your ship will trigger their effects. 
+* Making contact with powerups using with your ship will trigger their effects. 
 
 ####Types
 
