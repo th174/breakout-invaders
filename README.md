@@ -1,3 +1,5 @@
+[Click here to download binary](bin/BreakoutInvaders.jar)
+
 README
 =================================
 ##Usage
