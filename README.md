@@ -58,15 +58,15 @@ Or just **[download the binary.](https://github.com/th174/breakout-invaders/raw/
 
 - Mousemove:
 
-> Moves player1's ship
+	> Moves player1's ship
 
 - Mouse1click:
 
-> Releases the ball from the paddle
+	> Releases the ball from the paddle
 
 - Spacebar:
 
-> Pause, Unpause, and Continue game
+	> Pause, Unpause, and Continue game
 
 ###**Power-ups**
 
@@ -80,33 +80,33 @@ Making contact with powerups using with your ship will trigger their effects.
 
 - Extra Ball (~7.3% drop rate):
 
-> Creates an extra ball on your paddle. It can be released by clicking the mouse, or will release automatically after a few seconds. 
+	> Creates an extra ball on your paddle. It can be released by clicking the mouse, or will release automatically after a few seconds. 
 
 - Magnetic Paddle (~6.6% drop rate): 
 
-> For the next 20 seconds, contact with the ball and the paddle will pull the ball to the center of the paddle instead of bouncing it back. Clicking the mouse releases the ball.
+	> For the next 20 seconds, contact with the ball and the paddle will pull the ball to the center of the paddle instead of bouncing it back. Clicking the mouse releases the ball.
  
 - Health Pack (~5.9% drop rate): 
 
-> Permanently regenerates 20% of your maximum hp, up to 100%
+	> Permanently regenerates 20% of your maximum hp, up to 100%
 
 ###Debug keys
 
 - 'B':
 
-> Spawn a new ball in the center of the paddle 
+	> Spawn a new ball in the center of the paddle 
 
 - 'H':
 
-> Sets your health to 100% while toggled on
+	> Sets your health to 100% while toggled on
 
 - 'M': 
 
-> Makes the paddle "catch" the ball while toggled on, similar to the magnetic paddle powerup.
+	> Makes the paddle "catch" the ball while toggled on, similar to the magnetic paddle powerup.
 
 - 'N': 
 
->Instantly destroy all enemies in the current level. This ends the current level.
+	>Instantly destroy all enemies in the current level. This ends the current level.
 
 Credits
 -----------------------------------------
