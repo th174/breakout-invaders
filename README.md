@@ -93,15 +93,19 @@ Making contact with powerups using with your ship will trigger their effects.
 ###Debug keys
 
 - 'B':
+
 > Spawn a new ball in the center of the paddle 
 
 - 'H':
+
 > Sets your health to 100% while toggled on
 
 - 'M': 
+
 > Makes the paddle "catch" the ball while toggled on, similar to the magnetic paddle powerup.
 
 - 'N': 
+
 >Instantly destroy all enemies in the current level. This ends the current level.
 
 Credits
