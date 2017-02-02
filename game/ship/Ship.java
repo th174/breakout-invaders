@@ -7,8 +7,7 @@ import game.projectiles.PlasmaBall;
 import game.projectiles.Projectile;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Shape;
@@ -27,7 +26,8 @@ public abstract class Ship implements GameObj {
             "resources/explosion3.png",
             "resources/explosion4.png",
             "resources/explosion5.png",};
-    public static final String EXPLOSION_SOUND_LOCATION = "resources/explosion.wav";
+    public static final String EXPLOSION_SFX_LOCATION = "resources/explosion.wav";
+    public static final double EXPLOSION_SFX_VOLUME = 0.4;
     public static final int DEATH_ANIMATION_DURATION = 80;
     public static final int DEATH_ANIMATION_STEP = DEATH_ANIMATION_DURATION / 5;
     public static final int POST_DEATH_ANIMATION_DELAY = 10;
@@ -37,7 +37,6 @@ public abstract class Ship implements GameObj {
     public static final double HITBOX_REGION_TOP = HITBOX_REGION_LEFT;
     public static final double HITBOX_REGION_BOTTOM = 1 - HITBOX_REGION_TOP;
     public static final int BALL_BOUNCE_COOLDOWN = 20;
-    private final Media explosionSFX;
     private final Image[] deathAnimation;
     private final int maximumHealth;
     private final Collection<Projectile> myProjectiles = new HashSet<>();
@@ -66,7 +65,6 @@ public abstract class Ship implements GameObj {
         myHitBox.setRadiusY(getHeight() / 2 - getHeight() * DEFAULT_HITBOX_OFFSET);
         myHitBox.setFill(Color.CYAN);
         deathAnimation = Arrays.stream(DEFAULT_DEATH_ANIMATION_LOCATION).map(GameProperty.getAbsolutePath()::concat).map(Image::new).toArray(Image[]::new);
-        explosionSFX = new Media(GameProperty.getAbsolutePath() + EXPLOSION_SOUND_LOCATION);
     }
 
     public boolean update(Collection<Ship> ships) {
@@ -161,9 +159,7 @@ public abstract class Ship implements GameObj {
             myHitBox.setRadiusY(0);
             mySprite.setY(getY() + getHeight() / 2 - getWidth() / 2);
             deathTimer = DEATH_ANIMATION_DURATION;
-            MediaPlayer player = new MediaPlayer(explosionSFX);
-            player.setVolume(0.4);
-            player.play();
+            new AudioClip(GameProperty.getAbsolutePath() + EXPLOSION_SFX_LOCATION).play(EXPLOSION_SFX_VOLUME);
         }
         mySprite.setImage(deathAnimation[Math.min((DEATH_ANIMATION_DURATION - deathTimer) / DEATH_ANIMATION_STEP, 4)]);
         deathTimer--;

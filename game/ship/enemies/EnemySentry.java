@@ -8,6 +8,7 @@ import javafx.scene.image.Image;
  */
 public class EnemySentry extends EnemyShip {
     public static final double DEFAULT_SIZE = 90;
+    public static final int BONUS_SCORE = 50;
     public static final int DEFAULT_MOVETIMER_MIN = Integer.MAX_VALUE;
     public static final int DEFAULT_MOVETIMER_VARIANCE = 0;
     public static final int DEFAULT_MOVESPEED_X = 0;
@@ -25,6 +26,11 @@ public class EnemySentry extends EnemyShip {
 
     public EnemySentry(double x, double y, int hp, double size, double msx, double msy, Image sprite, Image sprite2) {
         super(x, y, hp, size, msx, msy, DEFAULT_MOVETIMER_MIN, DEFAULT_MOVETIMER_VARIANCE, sprite, sprite2);
+    }
+
+    @Override
+    public int getScore() {
+        return BONUS_SCORE + super.getScore();
     }
 }
 

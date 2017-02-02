@@ -1,9 +1,9 @@
 package game.ship.enemies;
 
 import game.GameProperty;
-import game.projectiles.PowerupBallMagnet;
-import game.projectiles.PowerupExtraBall;
-import game.projectiles.PowerupHealthPack;
+import game.projectiles.powerup.PowerupBallMagnet;
+import game.projectiles.powerup.PowerupExtraBall;
+import game.projectiles.powerup.PowerupHealthPack;
 import game.projectiles.Projectile;
 import game.ship.Ship;
 import javafx.scene.image.Image;
@@ -13,7 +13,7 @@ import javafx.scene.image.Image;
  */
 public abstract class EnemyShip extends Ship {
     public static final int STARTING_SHOOT_TIMER = 100;
-    public static final double BASE_POWERUP_DROP_CHANCE = .02;
+    public static final double BASE_POWERUP_DROP_CHANCE = .015;
     private static double powerupDropChancePRD = BASE_POWERUP_DROP_CHANCE; //single global drop chance to be modified when any enemyship is destoryed. single copy of variable avoids race condition when two enemy ships die at the same time
     private final Image[] mySprites;
     private final int moveTimerVariance;

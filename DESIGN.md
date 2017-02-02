@@ -20,8 +20,7 @@ The only part that might be confusing difficult to read in my opinion was the us
             Class[] constructorTypes = new Class[words.length - 1];
             Object[] constructorArgs = new Object[words.length - 1];
             if (enemyClass.equals(EnemyDoppleganger.class)) {
-                myPlayers.forEach(p -> myEnemies.add(new EnemyDoppleganger((PaddleShip) p)));
-            }
+              }
             for (int i = 0; i < constructorArgs.length; i++) {
                 try {
                     constructorArgs[i] = Double.parseDouble(words[i + 1]);

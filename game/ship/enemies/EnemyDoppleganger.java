@@ -9,7 +9,7 @@ import javafx.scene.image.Image;
  * Created by th174 on 1/16/2017.
  */
 public class EnemyDoppleganger extends EnemyShip {
-    public static final int BONUS_SCORE = 300;
+    public static final int BONUS_SCORE = 500;
     public static final int SHOOTTIMER_MAX = 180;
     public static final double BALL_SPEED = 5;
     public static final int BALL_DAMAGE = 20;

@@ -1,13 +1,13 @@
-import game.*;
+import game.GameObj;
+import game.GameProperty;
 import game.projectiles.Laser;
 import game.projectiles.Projectile;
-import game.ship.enemies.EnemyDoppleganger;
-import game.ship.enemies.EnemyShip;
 import game.ship.PaddleShip;
 import game.ship.PlayerShip;
 import game.ship.Ship;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
+import game.ship.enemies.EnemyDoppleganger;
+import game.ship.enemies.EnemyShip;
+import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Cursor;
@@ -26,7 +26,6 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -36,16 +35,16 @@ import java.util.*;
 public class BreakoutInvadersMain extends Application {
     public static final int STARTING_LEVEL = 1;
     public static final int NUM_OF_LEVELS = 3;
-    public static final double FRAMES_PER_SECOND = 120;
     public static final String TITLE = "BreakoutInvasion";
     public static final double DEFAULT_WIDTH = 1920;
     public static final double DEFAULT_HEIGHT = 1080;
-    public static final double MILLISECOND_DELAY = 1000 / FRAMES_PER_SECOND;
+    public static final double NANOSECOND = 1000000000.0;
+    public static final int FPS_UPDATE_TIME = 60;
     public static final int FONT_SIZE_LARGE = 120;
     public static final int FONT_SIZE_MEDIUM = 20;
     public static final int FONT_SIZE_SMALL = 15;
     public static final int LEVEL_BONUS_SCORE = 1000;
-    public static final String BACKGROUND = "resources/background.png";
+    public static final String BACKGROUND = "resources/Background.png";
     public static final String[] BGM_LOCATIONS = {"resources/BGM1.mp3", "resources/BGM2.mp3", "resources/BGM3.wav"};
     public static final String[] LEVELS = {"game/levels/level1.lvl", "game/levels/level2.lvl", "game/levels/level3.lvl"};
     public static final String[] LEVEL_TIPS = {
@@ -67,7 +66,7 @@ public class BreakoutInvadersMain extends Application {
                     "     The game will now restart from level 1 as soon as you unpause.\n" +
                     "     However, if you do want to play again, I would highly recommend you close out java and run it again.\n" +
                     "     This program has more leaks than the Titanic, so you're gonna have serious performance issues if you don't."};
-    private boolean showHitBoxes;
+    private boolean showHitBoxes = false;
     private boolean isPaused = true;
     private boolean isFullscreen = true;
     private boolean gameOver;
@@ -84,6 +83,10 @@ public class BreakoutInvadersMain extends Application {
     private Text myPauseText2;
     private Text myLevelAndScore;
     private int totalScore;
+
+    private long prevFrameTime;
+    private int frameCounter;
+    private double frameRate;
 
     public static void main(String[] args) {
         launch(args);
@@ -104,16 +107,17 @@ public class BreakoutInvadersMain extends Application {
             System.exit(0);
         });
         primaryStage.show();
-        KeyFrame frame = new KeyFrame(Duration.millis(MILLISECOND_DELAY), e -> update(myScene));
-        Timeline animation = new Timeline();
-        animation.setCycleCount(Timeline.INDEFINITE);
-        animation.getKeyFrames().add(frame);
-        animation.play();
+        AnimationTimer animation = new AnimationTimer() {
+            @Override
+            public void handle(long now) {
+                update(myScene, now);
+            }
+        };
+        animation.start();
     }
 
     private void readArgs(Parameters argv) {
         String option;
-        System.out.println(argv.getNamed());
         if ((option = argv.getNamed().get("dimensions")) != null) {
             String[] dim = option.split("x");
             GameProperty.set(Integer.parseInt(dim[0]), Integer.parseInt(dim[1]));
@@ -177,7 +181,7 @@ public class BreakoutInvadersMain extends Application {
         myScene.setOnKeyPressed(this::handleKeyPress);
     }
 
-    private void update(Scene myScene) {
+    private void update(Scene myScene, long now) {
         GameProperty.set(myScene.getWidth(), myScene.getHeight());
         if (isPaused) {
             pause(myScene);
@@ -199,7 +203,7 @@ public class BreakoutInvadersMain extends Application {
             updateShips(myEnemies, myPlayers, myScene);
             myProjectiles.forEach(e -> addToScene(e, myScene));
         }
-        updateUIText(myScene);
+        updateUIText(myScene, now);
         updateHealthAndShieldBar(myScene);
     }
 
@@ -226,17 +230,27 @@ public class BreakoutInvadersMain extends Application {
         myScene.setCursor(Cursor.CROSSHAIR);
     }
 
-    private void updateUIText(Scene myScene) {
-        myLevelAndScore.setText(String.format("Level:\t%d\nScore:\t%05d", currentLevel, totalScore));
+    private void updateUIText(Scene myScene, long now) {
+        double frameRate = getFrameRate(now);
+        myLevelAndScore.setText(String.format("Level:\t%d\nScore:\t%05d\nFPS:\t%05.1f", currentLevel, totalScore, frameRate));
         if (!myPlayers.isEmpty() && ((List<Ship>) myPlayers).get(0) instanceof PaddleShip) {
             PaddleShip myPlayer0 = (PaddleShip) ((List<Ship>) myPlayers).get(0);
             int remainingTime = myPlayer0.getPowerupMagnetStatus();
             if (remainingTime > 0) {
-                myPowerupStatus.setText(String.format("Ball Magnet: %2.1f", remainingTime / FRAMES_PER_SECOND));
+                myPowerupStatus.setText(String.format("Ball Magnet: %2.1f", remainingTime / frameRate));
             } else {
                 myPowerupStatus.setText("");
             }
         }
+    }
+
+    private double getFrameRate(long timeStamp) {
+        if (frameCounter % FPS_UPDATE_TIME == 0) {
+            frameRate = NANOSECOND / (timeStamp - prevFrameTime) * FPS_UPDATE_TIME;
+            prevFrameTime = timeStamp;
+        }
+        frameCounter++;
+        return frameRate;
     }
 
     private void gameOver(Scene myScene) {
@@ -285,14 +299,13 @@ public class BreakoutInvadersMain extends Application {
         myEnemies.forEach(e -> addToScene(e, myScene));
     }
 
-    //the most disgusting method i've ever written
     private void readLevel(String levelFile) {
         try (BufferedReader br = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(levelFile)))) {
             for (String line; (line = br.readLine()) != null; ) {
                 String[] words = line.split("\\s+");
                 if (words[0].contains("Enemy")) {
                     try {
-                        Class<EnemyShip> enemyClass = (Class<EnemyShip>) Class.forName("game." + words[0]);
+                        Class<EnemyShip> enemyClass = (Class<EnemyShip>) Class.forName("game.ship.enemies." + words[0]);
                         Class[] constructorTypes = new Class[words.length - 1];
                         Object[] constructorArgs = new Object[words.length - 1];
                         if (enemyClass.equals(EnemyDoppleganger.class)) {
@@ -307,8 +320,8 @@ public class BreakoutInvadersMain extends Application {
                                     constructorTypes[i] = getClass().getDeclaredField(words[i + 1]).getType();
                                 }
                             }
-                            constructorArgs[0] = ((Double) constructorArgs[0]) * GameProperty.getWidth() * GameProperty.SCALE_X - (double) enemyClass.getDeclaredField("DEFAULT_SIZE").get(null) / 2;
-                            constructorArgs[1] = ((Double) constructorArgs[1]) * GameProperty.getHeight() * GameProperty.SCALE_Y;
+                            constructorArgs[0] = ((double) constructorArgs[0]) * GameProperty.getWidth() * GameProperty.SCALE_X - (double) enemyClass.getDeclaredField("DEFAULT_SIZE").get(null) / 2;
+                            constructorArgs[1] = ((double) constructorArgs[1]) * GameProperty.getHeight() * GameProperty.SCALE_Y;
                             myEnemies.add(enemyClass.getDeclaredConstructor(constructorTypes).newInstance(constructorArgs));
                         }
                     } catch (Exception e) {

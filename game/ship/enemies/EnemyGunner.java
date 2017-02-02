@@ -9,7 +9,7 @@ import javafx.scene.paint.Color;
  * Created by th174 on 1/15/2017.
  */
 public class EnemyGunner extends EnemyShip {
-    public static final int BONUS_SCORE = 150;
+    public static final int BONUS_SCORE = 200;
     public static final double DEFAULT_SIZE = 120;
     public static final int SHOOTTIMER_MAX = 200;
     public static final int STRAFE_INTERVAL = 7;

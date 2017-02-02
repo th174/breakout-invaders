@@ -12,7 +12,7 @@ import java.util.Collection;
  * Created by th174 on 1/15/2017.
  */
 public class EnemySpectre extends EnemyShip {
-    public static final int BONUS_SCORE = 100;
+    public static final int BONUS_SCORE = 150;
     public static final double DEFAULT_SIZE = 160;
     public static final int SHOOTTIMER_MIN = 20;
     public static final int SHOOTTIMER_VARIANCE = 150;

@@ -3,13 +3,13 @@ package game.projectiles;
 
 import game.GameProperty;
 import game.ship.PaddleShip;
+import game.ship.PlayerShip;
 import game.ship.Ship;
 import game.ship.enemies.EnemyDoppleganger;
 import game.ship.enemies.EnemyShip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Ellipse;
@@ -27,12 +27,11 @@ public class PlasmaBall extends Projectile {
     public static final double DEFAULT_ANGLE = Math.PI / 2;
     public static final int DEFAULT_DAMAGE = 50;
     public static final String DEFAULT_SPRITE_LOCATION = "resources/plasmaball.png";
-    public static final String BOUNCE_ALLY_SOUND_LOCATION = "resources/bounce.wav";
-    public static final String BOUNCE_ENEMY_SOUND_LOCATION = "resources/bounce2.wav";
+    public static final String BOUNCE_ALLY_SFX_LOCATION = "resources/bounce.wav";
+    public static final String BOUNCE_ENEMY_SFX_LOCATION = "resources/bounce2.wav";
+    public static final double BOUNCE_SFX_VOLUME = 1.0;
     public static final double EDGE_TOLERANCE = 5;
     private final double mySize;
-    private final Media bounceSFXAlly;
-    private final Media bounceSFXEnemy;
     private boolean isTethered;
     private double moveAngle;
     private Ship parentShip;
@@ -64,8 +63,6 @@ public class PlasmaBall extends Projectile {
         ((ImageView) getSprite()).setCache(true);
         ((ImageView) getSprite()).setFitWidth(size * GameProperty.getWidth() * GameProperty.SCALE_X);
         setHitBox(new Circle(x + getWidth() / 2, y + getHeight() / 2, getWidth() / 2, Color.CYAN));
-        bounceSFXAlly = new Media(GameProperty.getAbsolutePath() + BOUNCE_ALLY_SOUND_LOCATION);
-        bounceSFXEnemy = new Media(GameProperty.getAbsolutePath() + BOUNCE_ENEMY_SOUND_LOCATION);
     }
 
     @Override
@@ -125,11 +122,7 @@ public class PlasmaBall extends Projectile {
             } else if (moveAngle > Math.PI * 71 / 36 && moveAngle <= Math.PI * 2) {
                 moveAngle = Math.PI * 71 / 36;
             }
-            if (parentShip instanceof EnemyShip) {
-                new MediaPlayer(bounceSFXEnemy).play();
-            } else {
-                new MediaPlayer(bounceSFXAlly).play();
-            }
+            new AudioClip(GameProperty.getAbsolutePath() + (parentShip instanceof PlayerShip ? BOUNCE_ALLY_SFX_LOCATION : BOUNCE_ENEMY_SFX_LOCATION)).play(BOUNCE_SFX_VOLUME);
         }
     }
 

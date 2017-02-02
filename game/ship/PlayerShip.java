@@ -1,7 +1,7 @@
 package game.ship;
 
 import game.GameProperty;
-import game.projectiles.Powerup;
+import game.projectiles.powerup.Powerup;
 import game.projectiles.Projectile;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;

@@ -10,6 +10,7 @@ import javafx.scene.paint.Color;
  */
 public class EnemySoldier extends EnemyShip {
     public static final double DEFAULT_SIZE = 150;
+    public static final int BONUS_SCORE = 100;
     public static final int DEFAULT_MOVETIMER_MIN = 150;
     public static final int DEFAULT_MOVETIMER_VARIANCE = 400;
     public static final int SHOOTTIMER_MIN = 40;
@@ -44,5 +45,10 @@ public class EnemySoldier extends EnemyShip {
             }
         }
         super.updateProjectiles();
+    }
+
+    @Override
+    public int getScore() {
+        return BONUS_SCORE + super.getScore();
     }
 }

@@ -16,7 +16,8 @@ public class EnemyMortar extends EnemyShip {
     public static final int SHOOTTIMER_MAX = 800;
     public static final int DEFAULT_MAX_HEALTH = 100;
     public static final String[] DEFAULT_SPRITE_LOCATIONS = {"resources/mortar.png", "resources/mortar2.png"};
-    static final double DEFAULT_SIZE = 100;
+    public static final double DEFAULT_SIZE = 100;
+    public static final int BONUS_SCORE = 250;
     private final Collection<Ship> targetShips;
 
     public EnemyMortar(double x, double y, Ship target) {
@@ -52,6 +53,6 @@ public class EnemyMortar extends EnemyShip {
 
     @Override
     public int getScore() {
-        return 200 + super.getScore();
+        return BONUS_SCORE + super.getScore();
     }
 }
