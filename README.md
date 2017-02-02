@@ -34,6 +34,7 @@ README
 * Victory lies in completing each level without allowing your ship to be destroyed.
 
 ###**Controls**
+
 - Mousemove:
 
 > Moves player1's ship
@@ -47,6 +48,7 @@ README
 > Pause, Unpause, and Continue game
 
 ###**Power-ups**
+
 Power-ups drop randomly from all enemies when they are destroyed, using [Pseudo-Random Distribution](http://wiki.teamliquid.net/dota2/Pseudo_Random_Distribution). 
 
 Averaged over a long period of time, each enemy ship has a total 19.8% chance to drop a Power-up.
@@ -54,8 +56,8 @@ Averaged over a long period of time, each enemy ship has a total 19.8% chance to
 Making contact with powerups using with your ship will trigger their effects. 
 
 ####Types
-- Extra Ball (~7.3% drop rate):
 
+- Extra Ball (~7.3% drop rate):
 > Creates an extra ball on your paddle. It can be released by clicking the mouse, or will release automatically after a few seconds. 
 
 - Magnetic Paddle (~6.6% drop rate): 
